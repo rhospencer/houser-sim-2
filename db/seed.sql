@@ -20,3 +20,9 @@ VALUES
     ('Jacob', '456 Street', 'Washington', 'UT', 84780, 'img@url.com', 300.95, 400.95);
 
 SELECT * FROM houses;
+
+-- ADD COLUMNS -- 
+ALTER TABLE houses
+ADD img TEXT,
+    mortgage DECIMAL,
+    rent DECIMAL;

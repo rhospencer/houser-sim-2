@@ -8,7 +8,9 @@ import routes from './routes'
 function App() {
   return (
     <div className="App">
-      <Header />
+      <header>
+        <Header />
+      </header>
       {routes}
     </div>
   );
