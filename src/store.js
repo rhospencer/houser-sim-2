@@ -44,20 +44,7 @@ function reducer(state = initialState, action) {
                 rent: action.payload.rent
             }
         case CANCEL_INPUTS:
-            return Object.assign(
-                {}, 
-                initialState, 
-                {
-                    name: '',
-                    address: '',
-                    city: '',
-                    state: '',
-                    zip: null,
-                    img: '',
-                    mortgage: null,
-                    rent: null
-                }
-            ) 
+            return initialState
         default:
             return state
     }

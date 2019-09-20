@@ -40,13 +40,21 @@ export default class Dashboard extends Component {
                         city={el.city}
                         state={el.state}
                         zip={el.zip}
+                        img={el.img}
+                        mortgage={el.mortgage}
+                        rent={el.rent}
                         deleteHouse = {this.deleteHouse}          
                     />
         })
         return(
-            <div>
-                Dashboard
-                <button><Link to={'/wizard/step1'}>Add New Property</Link></button>
+            <div className='dashboard-holder'>
+                <div className="dashboard-title-holder">
+                    Dashboard
+                    <button><Link to={'/wizard/step1'}>Add New Property</Link></button>
+                </div>
+                <div className="home-listings-holder">
+                    <h4>Home Listings</h4>
+                </div>
                 {houses}
             </div>
         )

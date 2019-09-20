@@ -28,7 +28,7 @@ export default class Wizard extends Component {
                 <Route path='/wizard/step1' component={StepOne}></Route>
                 <Route path='/wizard/step2' component={StepTwo}></Route>
                 <Route path='/wizard/step3' component={StepThree}></Route>
-                <button><Link to={'/'}>Cancel</Link></button>
+                <button onClick={() => this.handleCancel()}><Link to={'/'}>Cancel</Link></button>
             </div>
         )
     }
