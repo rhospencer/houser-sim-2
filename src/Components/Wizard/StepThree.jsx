@@ -24,8 +24,6 @@ export default class StepThree extends Component {
             })
         })
         const reduxState = store.getState()
-        console.log(reduxState)
-        console.log(this.state)
     }
 
     handleChangeMortgage = (e) => {
@@ -37,7 +35,6 @@ export default class StepThree extends Component {
     }
 
     addHouse = () => {
-        this.handleSubmit()
         const reduxState = store.getState()
         const params = {
             name: reduxState.name,
@@ -69,7 +66,7 @@ export default class StepThree extends Component {
                 <input value={this.state.mortgage} onChange={(e) => this.handleChangeMortgage(e)} placeholder="Mortgage" type="text"/>
                 <input value={this.state.rent} onChange={(e) => this.handleChangeRent(e)} placeholder="Rent" type="text"/>
                 <button onClick={() => this.handleSubmit()}><Link to='/wizard/step2'>Previous Step</Link></button>
-                <button onClick={this.addHouse}><Link to='/'>Complete</Link></button>
+                <button onClick={() => this.addHouse()}><Link to={'/'}>Complete</Link></button>
             </div>
         )
     }
