@@ -35,6 +35,7 @@ export default class StepThree extends Component {
     }
 
     addHouse = () => {
+        this.handleSubmit()
         const reduxState = store.getState()
         const params = {
             name: reduxState.name,
@@ -43,13 +44,13 @@ export default class StepThree extends Component {
             state: reduxState.state,
             zip: reduxState.zip,
             img: reduxState.img,
-            mortgage: this.state.mortgage,
-            rent: this.state.mortgage
+            mortgage: reduxState.mortgage,
+            rent: reduxState.rent
         }
         console.log(params)
         axios.post('/api/house', params).then(res => {
         })
-        this.props.history.goBack()
+        
     }
 
     handleSubmit = () => {

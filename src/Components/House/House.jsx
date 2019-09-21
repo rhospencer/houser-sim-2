@@ -13,7 +13,7 @@ export default class House extends Component {
         return(
             <div className='house-holder'>
                 <div className="img-holder">
-
+                    <img src={this.props.img} alt="House Img"/>
                 </div>
                 <div className="property-holder">
                     <h6>Property Name: {this.props.name}</h6>
@@ -24,6 +24,7 @@ export default class House extends Component {
                 </div>
                 <div className="price-holder">
                     <h6>Monthly Mortgage: {this.props.mortgage}</h6>
+                    {console.log(this.props)}
                     <h6>Desired Rent: {this.props.rent}</h6>
 
                 </div>

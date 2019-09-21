@@ -29,7 +29,7 @@ export default class StepTwo extends Component {
     handleSubmit = () => {
         store.dispatch({
             type: STEP_TWO,
-            payload: this.state.img
+            payload: this.state
         })
     }
 

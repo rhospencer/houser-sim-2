@@ -32,6 +32,7 @@ export default class Dashboard extends Component {
 
     render() {
         const houses = this.state.houseList.map(el => {
+            console.log(el)
             return <House 
                         key={el.id}
                         id={el.id}

@@ -75,6 +75,11 @@ header {
   height: 100%;
 }
 
+.img-holder img {
+  height: 100px;
+  width: 100px;
+}
+
 .property-holder {
   width: 30%;
   height: 100%;
