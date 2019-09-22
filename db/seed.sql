@@ -5,7 +5,7 @@ CREATE TABLE houses (
     name VARCHAR(30),
     address VARCHAR(100),
     city VARCHAR(100),
-    state VARCHAR(2),
+    state VARCHAR(100),
     zip INT,
     img TEXT,
     mortgage DECIMAL,

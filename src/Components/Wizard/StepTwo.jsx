@@ -30,14 +30,17 @@ export default class StepTwo extends Component {
         store.dispatch({
             type: STEP_TWO,
             payload: this.state
+
         })
     }
 
     render() {
         return(
             <div>
-                Step Two
-                <input  value={this.state.img} onChange={(e) => this.handleChangeImg(e)} type="text"/>
+                <div className="input-holder-img">
+                    <h2>Image URL</h2>
+                    <input value={this.state.img} onChange={(e) => this.handleChangeImg(e)} placeholder="Image Link" type="text"/>
+                </div>
                 <button><Link to='/wizard/step1'>Previous Step</Link></button>
                 <button onClick={() => this.handleSubmit()}><Link to='/wizard/step3'>Next Step</Link></button>
             </div>

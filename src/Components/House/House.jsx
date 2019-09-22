@@ -13,6 +13,7 @@ export default class House extends Component {
         return(
             <div className='house-holder'>
                 <div className="img-holder">
+                    {console.log(typeof this.props.img)}
                     <img src={this.props.img} alt="House Img"/>
                 </div>
                 <div className="property-holder">

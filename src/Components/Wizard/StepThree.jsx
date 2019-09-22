@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import store, {STEP_THREE} from '../../store'
+import store, {STEP_THREE, CANCEL_INPUTS} from '../../store'
 
 export default class StepThree extends Component {
     constructor() {
@@ -11,7 +11,8 @@ export default class StepThree extends Component {
 
         this.state = {
             mortgage: reduxState.mortgage,
-            rent: reduxState.rent
+            rent: reduxState.rent,
+            recommend: 0
         }
     }
 
@@ -27,7 +28,7 @@ export default class StepThree extends Component {
     }
 
     handleChangeMortgage = (e) => {
-        this.setState({mortgage: e.target.value})
+        this.setState({mortgage: e.target.value, recommend: e.target.value * 1.25})
     }
 
     handleChangeRent = (e) => {
@@ -47,10 +48,9 @@ export default class StepThree extends Component {
             mortgage: reduxState.mortgage,
             rent: reduxState.rent
         }
-        console.log(params)
         axios.post('/api/house', params).then(res => {
+            this.handleCancel()
         })
-        
     }
 
     handleSubmit = () => {
@@ -60,14 +60,26 @@ export default class StepThree extends Component {
         })
     }
 
+    handleCancel = () => {
+        store.dispatch({
+            type: CANCEL_INPUTS
+        })
+    }
+
     render() {
         return(
             <div>
-                Step Three
-                <input value={this.state.mortgage} onChange={(e) => this.handleChangeMortgage(e)} placeholder="Mortgage" type="text"/>
-                <input value={this.state.rent} onChange={(e) => this.handleChangeRent(e)} placeholder="Rent" type="text"/>
+                <div className="input-holder-price">
+                    <h3>Recommended Rent: ${this.state.recommend.toFixed(2)}</h3>
+                    <br/>
+                    <h2>Monthly Mortgage Amount</h2>
+                    <input value={this.state.mortgage} onChange={(e) => this.handleChangeMortgage(e)} placeholder="Mortgage" type="text"/>
+                    <br/>
+                    <h2>Desired Monthly Rent</h2>
+                    <input value={this.state.rent} onChange={(e) => this.handleChangeRent(e)} placeholder="Rent" type="text"/>
+                </div>
                 <button onClick={() => this.handleSubmit()}><Link to='/wizard/step2'>Previous Step</Link></button>
-                <button onClick={() => this.addHouse()}><Link to={'/'}>Complete</Link></button>
+                <button onClick={() => this.addHouse()}><Link to={'/'} replace>Complete</Link></button>
             </div>
         )
     }

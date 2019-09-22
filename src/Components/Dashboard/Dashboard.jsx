@@ -21,6 +21,7 @@ export default class Dashboard extends Component {
         axios.get('/api/houses').then(res => {
             this.setState({houseList: res.data})
         })
+        
     }
 
     deleteHouse(id) {
@@ -32,7 +33,8 @@ export default class Dashboard extends Component {
 
     render() {
         const houses = this.state.houseList.map(el => {
-            console.log(el)
+            const {img} = el
+            console.log(img)
             return <House 
                         key={el.id}
                         id={el.id}
@@ -46,9 +48,9 @@ export default class Dashboard extends Component {
                         rent={el.rent}
                         deleteHouse = {this.deleteHouse}          
                     />
-        })
-        return(
-            <div className='dashboard-holder'>
+                })
+                return(
+                    <div className='dashboard-holder'>
                 <div className="dashboard-title-holder">
                     Dashboard
                     <button><Link to={'/wizard/step1'}>Add New Property</Link></button>
